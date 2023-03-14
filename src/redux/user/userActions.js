@@ -6,7 +6,7 @@ Idit oksman - 207379769
 import axios from 'axios'
 import { createAsyncThunk } from '@reduxjs/toolkit'
 
-const backendApiURL = process.env.REACT_APP_COST_BACKEND_API;
+const backendApiURL = "http://13.53.201.157/api";
 
 export const userLogin = createAsyncThunk(
   'users/login',

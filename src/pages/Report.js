@@ -13,7 +13,7 @@ import axios from 'axios'
 import { useNavigate } from 'react-router-dom'
 import Loader from '../components/Loading'
 
-const backendApiURL = process.env.REACT_APP_COST_BACKEND_API;
+const backendApiURL = "http://13.53.201.157/api";
 
 export const Report = () => {
     const [picker, setPicker] = useState(new Date())

@@ -14,7 +14,7 @@ import Select from 'react-select'
 import Loader from '../components/Loading'
 import { costCreate } from '../redux/cost/costActions'
 
-const backendApiURL = process.env.REACT_APP_COST_BACKEND_API;
+const backendApiURL = "http://13.53.201.157/api";
 
 const AddCost = () => {
     const { userInfo, userToken } = useSelector((state) => state.user)

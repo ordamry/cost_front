@@ -14,7 +14,7 @@ import Loader from '../components/Loading'
 import { costGet, costUpdate } from '../redux/cost/costActions'
 import Error from '../components/Error'
 
-const backendApiURL = process.env.REACT_APP_COST_BACKEND_API;
+const backendApiURL = "http://13.53.201.157/api";
 
 const UpdateCost = () => {
     const { costId } = useParams();
