@@ -22,7 +22,7 @@ const CostList = () => {
         if (userInfo) {
             dispatch(costAllList({ search: searchVal }))
         }
-    }, [dispatch, userInfo, successe55Delete])
+    }, [dispatch, userInfo, successDelete])
     const basicCostColumns = [
         {
             name: 'Category',
