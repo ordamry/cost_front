@@ -38,7 +38,7 @@ const CostList = () => {
       sortable: true,
       filterable: true,
       maxWidth: "135px",
-      selector: (row) => row.user_id?.first_name,
+      selector: (row) => row.userId?.first_name,
     },
     {
       name: "Description",

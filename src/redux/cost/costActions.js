@@ -7,6 +7,7 @@ import { createAsyncThunk } from "@reduxjs/toolkit";
 import axios from "axios";
 
 const backendApiURL = "http://13.53.201.157/api";
+
 export const costAllList = createAsyncThunk(
   "costs/list",
   async ({ search }, { getState, rejectWithValue }) => {
