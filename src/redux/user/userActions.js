@@ -6,8 +6,7 @@ Idit oksman - 207379769
 import axios from "axios";
 import { createAsyncThunk } from "@reduxjs/toolkit";
 
-// const backendApiURL = "http://13.53.201.157/api";
-const backendApiURL = "http://localhost:5000";
+const backendApiURL = "http://13.53.201.157/api";
 
 export const userLogin = createAsyncThunk(
   "users/login",
