@@ -7,7 +7,8 @@ Idit oksman - 207379769
 import { createAsyncThunk } from "@reduxjs/toolkit";
 import axios from 'axios'
 
-const backendApiURL = "http://13.53.201.157/api";
+//const backendApiURL = "http://13.53.201.157/api";
+const backendApiURL = "http://localhost:5000";
 
 export const categoryAllList = createAsyncThunk(
     "category/list",
@@ -44,7 +45,7 @@ export const categoryAllList = createAsyncThunk(
 
 export const categoryCreate = createAsyncThunk(
     'category/create',
-    async ({ name, description }, { getState, rejectWithValue }) => {
+    async ({ name, sum, description }, { getState, rejectWithValue }) => {
         try {
             // get user data from store
             const { user } = getState()
@@ -58,7 +59,7 @@ export const categoryCreate = createAsyncThunk(
 
             const { data } = await axios.post(
                 `${backendApiURL}/categories`,
-                { name, description },
+                { name, sum, description },
                 config
             )
 
@@ -76,7 +77,7 @@ export const categoryCreate = createAsyncThunk(
 
 export const categoryUpdate = createAsyncThunk(
     'category/update',
-    async ({ id, name, description }, { getState, rejectWithValue }) => {
+    async ({ id, name, sum, description }, { getState, rejectWithValue }) => {
         try {
             // get user data from store
             const { user } = getState()
@@ -90,7 +91,7 @@ export const categoryUpdate = createAsyncThunk(
 
             const { data } = await axios.put(
                 `${backendApiURL}/categories/${id}`,
-                { name, description },
+                { name, sum, description },
                 config
             )
 

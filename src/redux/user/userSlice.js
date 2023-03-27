@@ -25,11 +25,11 @@ const userSlice = createSlice({
   initialState,
   reducers: {
     logout: (state) => {
-      localStorage.removeItem('userToken') // delete token from storage
-      state.loading = false
-      state.userInfo = null
-      state.userToken = null
-      state.error = null
+      localStorage.removeItem('userToken'); // delete token from storage
+      state.loading = false;
+      state.userInfo = null;
+      state.userToken = null;
+      state.error = null;
     },
   },
   extraReducers: {

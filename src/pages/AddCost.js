@@ -14,7 +14,8 @@ import Select from 'react-select'
 import Loader from '../components/Loading'
 import { costCreate } from '../redux/cost/costActions'
 
-const backendApiURL = "http://13.53.201.157/api";
+// const backendApiURL = "http://13.53.201.157/api";
+const backendApiURL = "http://localhost:5000";
 
 const AddCost = () => {
     const { userInfo, userToken } = useSelector((state) => state.user)
@@ -58,7 +59,7 @@ const AddCost = () => {
         let costData = {
             category: data.category.value,
             description: data.description,
-            price: data.price,
+            sum: data.sum,
             date: data.date
         }
         dispatch(costCreate(costData))
@@ -100,16 +101,16 @@ const AddCost = () => {
                                     </Row>
                                     <Row>
                                         <Col lg={6} xl={6} md={6}>
-                                            <Form.Group className='py-1' controlId='price'>
+                                            <Form.Group className='py-1' controlId='sum'>
                                                 <Form.Label>Price</Form.Label>
                                                 <Form.Control
                                                     type='number'
-                                                    className={`${errors.price ? "is-invalid" : ""}`}
+                                                    className={`${errors.sum ? "is-invalid" : ""}`}
                                                     placeholder='Enter Price'
-                                                    {...register('price', { required: true })}
+                                                    {...register('sum', { required: true })}
                                                 >
                                                 </Form.Control>
-                                                {errors.price && (
+                                                {errors.sum && (
                                                     <div className="invalid-feedback">Price must be required</div>
                                                 )}
 

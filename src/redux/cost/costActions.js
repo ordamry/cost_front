@@ -6,7 +6,8 @@ Idit oksman - 207379769
 import { createAsyncThunk } from "@reduxjs/toolkit";
 import axios from 'axios'
 
-const backendApiURL = "http://13.53.201.157/api";
+//const backendApiURL = "http://13.53.201.157/api";
+const backendApiURL = "http://localhost:5000";
 
 export const costAllList = createAsyncThunk(
   "costs/list",
@@ -44,7 +45,7 @@ export const costAllList = createAsyncThunk(
 
 export const costCreate = createAsyncThunk(
   'costs/create',
-  async ({ category, description, price, date }, { getState, rejectWithValue }) => {
+  async ({ category, description, sum, date }, { getState, rejectWithValue }) => {
     try {
       // get user data from store
       const { user } = getState()
@@ -58,7 +59,7 @@ export const costCreate = createAsyncThunk(
 
       const { data } = await axios.post(
         `${backendApiURL}/costs`,
-        { category, description, price, date },
+        { category, description, sum, date },
         config
       )
 
@@ -76,7 +77,7 @@ export const costCreate = createAsyncThunk(
 
 export const costUpdate = createAsyncThunk(
   'costs/update',
-  async ({ id, category, description, price, date }, { getState, rejectWithValue }) => {
+  async ({ id, category, description, sum, date }, { getState, rejectWithValue }) => {
       try {
           // get user data from store
           const { user } = getState()
@@ -90,7 +91,7 @@ export const costUpdate = createAsyncThunk(
 
           const { data } = await axios.put(
               `${backendApiURL}/costs/${id}`,
-              { category, description, price, date },
+              { category, description, sum, date },
               config
           )
 

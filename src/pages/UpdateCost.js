@@ -14,7 +14,8 @@ import Loader from '../components/Loading'
 import { costGet, costUpdate } from '../redux/cost/costActions'
 import Error from '../components/Error'
 
-const backendApiURL = "http://13.53.201.157/api";
+//const backendApiURL = "http://13.53.201.157/api";
+const backendApiURL = "http://localhost:5000";
 
 const UpdateCost = () => {
     const { costId } = useParams();
@@ -64,9 +65,10 @@ const UpdateCost = () => {
             id: costId,
             category: categoryVal,
             description: data.description,
-            price: data.price,
+            sum: data.sum,
             date: data.date
         }
+        console.log("=====", costData)
         dispatch(costUpdate(costData))
     }
 
@@ -101,13 +103,13 @@ const UpdateCost = () => {
                                                 <Form.Label>Price</Form.Label>
                                                 <Form.Control
                                                     type='number'
-                                                    defaultValue={costD?.price}
-                                                    className={`${errors.price ? "is-invalid" : ""}`}
+                                                    defaultValue={costD?.sum}
+                                                    className={`${errors.sum ? "is-invalid" : ""}`}
                                                     placeholder='Enter Price'
-                                                    {...register('price', { required: true })}
+                                                    {...register('sum', { required: true })}
                                                 >
                                                 </Form.Control>
-                                                {errors.price && (
+                                                {errors.sum && (
                                                     <div className="invalid-feedback">Price must be required</div>
                                                 )}
 

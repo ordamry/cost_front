@@ -24,7 +24,7 @@ const Login = () => {
     useEffect(() => {
         if (userInfo) {
             navigate('/costs')
-        }
+        } 
     }, [navigate, userInfo])
 
     const submitForm = (data) => {
