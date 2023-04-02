@@ -51,7 +51,7 @@ const AddCost = () => {
     if (!userInfo) {
       navigate("/login");
     } else {
-      if (success) navigate("/costs");
+      if (success) navigate("/addcost");
       categoryData();
     }
   }, [navigate, userInfo, success, userToken, categoryData]);

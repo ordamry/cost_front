@@ -53,7 +53,7 @@ const UpdateCost = () => {
     if (!userInfo) {
       navigate("/login");
     } else {
-      if (success) navigate("/costs");
+      if (success) navigate("/addcost");
       categoryData();
       if (!costD.category) {
         dispatch(costGet({ id: costId }));

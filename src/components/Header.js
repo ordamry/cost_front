@@ -12,7 +12,7 @@ import { logout } from "../redux/user/userSlice";
 
 const Header = () => {
   const { userInfo, userToken } = useSelector((state) => state.user);
-  console.log(userInfo, "dddd")
+  console.log(userInfo, "dddd");
   const dispatch = useDispatch();
   //assigning location variable
   const location = useLocation();
@@ -41,7 +41,7 @@ const Header = () => {
       <Container>
         {userInfo ? (
           <Navbar.Brand
-            href="/costs"
+            href="/addcost"
             style={{ fontSize: "calc(1.3rem + .6vw)" }}
           >
             <i className="fas fa-money-bill-wave" /> Cost Manager
@@ -59,7 +59,7 @@ const Header = () => {
               <>
                 <Nav.Link
                   className={splitLocation[1] === "costs" ? "active" : ""}
-                  href="/costs"
+                  href="/addcost"
                 >
                   Cost
                 </Nav.Link>

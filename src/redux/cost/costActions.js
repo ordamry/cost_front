@@ -9,7 +9,7 @@ import axios from "axios";
 const backendApiURL = "http://13.53.201.157/api";
 
 export const costAllList = createAsyncThunk(
-  "costs/list",
+  "addcost/list",
   async ({ search }, { getState, rejectWithValue }) => {
     // get user data from store
     const { user } = getState();
@@ -21,7 +21,7 @@ export const costAllList = createAsyncThunk(
           Authorization: `Bearer ${user.userToken}`,
         },
       };
-      const { data } = await axios.get(`${backendApiURL}/costs`, config);
+      const { data } = await axios.get(`${backendApiURL}/addcost`, config);
 
       if (search !== "") {
         return data.filter((sub) => sub.category?.name.startsWith(search));
@@ -40,7 +40,7 @@ export const costAllList = createAsyncThunk(
 );
 
 export const costCreate = createAsyncThunk(
-  "costs/create",
+  "addcost/create",
   async (
     { category, description, sum, date },
     { getState, rejectWithValue }
@@ -57,7 +57,7 @@ export const costCreate = createAsyncThunk(
       };
 
       const { data } = await axios.post(
-        `${backendApiURL}/costs`,
+        `${backendApiURL}/addcost`,
         { category, description, sum, date },
         config
       );
@@ -75,7 +75,7 @@ export const costCreate = createAsyncThunk(
 );
 
 export const costUpdate = createAsyncThunk(
-  "costs/update",
+  "addcost/update",
   async (
     { id, category, description, sum, date },
     { getState, rejectWithValue }
@@ -92,7 +92,7 @@ export const costUpdate = createAsyncThunk(
       };
 
       const { data } = await axios.put(
-        `${backendApiURL}/costs/${id}`,
+        `${backendApiURL}/addcost/${id}`,
         { category, description, sum, date },
         config
       );
@@ -110,7 +110,7 @@ export const costUpdate = createAsyncThunk(
 );
 
 export const costDelete = createAsyncThunk(
-  "costs/delete",
+  "addcost/delete",
   async ({ id }, { getState, rejectWithValue }) => {
     try {
       // get user data from store
@@ -124,7 +124,7 @@ export const costDelete = createAsyncThunk(
       };
 
       const { data } = await axios.delete(
-        `${backendApiURL}/costs/${id}`,
+        `${backendApiURL}/addcost/${id}`,
         config
       );
 
@@ -141,7 +141,7 @@ export const costDelete = createAsyncThunk(
 );
 
 export const costGet = createAsyncThunk(
-  "costs/getone",
+  "addcost/getone",
   async ({ id }, { getState, rejectWithValue }) => {
     try {
       // get user data from store
@@ -154,7 +154,10 @@ export const costGet = createAsyncThunk(
         },
       };
 
-      const { data } = await axios.get(`${backendApiURL}/costs/${id}`, config);
+      const { data } = await axios.get(
+        `${backendApiURL}/addcost/${id}`,
+        config
+      );
 
       return data;
     } catch (error) {
