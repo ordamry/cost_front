@@ -14,7 +14,7 @@ import Loader from "../components/Loading";
 import { costGet, costUpdate } from "../redux/cost/costActions";
 import Error from "../components/Error";
 
-const backendApiURL = "http://13.53.201.157/api";
+const backendApiURL = "http://13.53.201.157/api/";
 
 const UpdateCost = () => {
   const { costId } = useParams();
@@ -53,7 +53,7 @@ const UpdateCost = () => {
     if (!userInfo) {
       navigate("/login");
     } else {
-      if (success) navigate("/addcost");
+      if (success) navigate("/costs");
       categoryData();
       if (!costD.category) {
         dispatch(costGet({ id: costId }));
@@ -77,7 +77,7 @@ const UpdateCost = () => {
       sum: data.sum,
       date: data.date,
     };
-    console.log("=====", costData);
+
     dispatch(costUpdate(costData));
   };
 

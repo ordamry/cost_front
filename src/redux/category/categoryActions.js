@@ -7,10 +7,10 @@ Idit oksman - 207379769
 import { createAsyncThunk } from "@reduxjs/toolkit";
 import axios from "axios";
 
-const backendApiURL = "http://13.53.201.157/api";
+const backendApiURL = "http://13.53.201.157/api/";
 
 export const categoryAllList = createAsyncThunk(
-  "category/list",
+  "list",
   async ({ search }, { getState, rejectWithValue }) => {
     // get user data from store
     const { user } = getState();
@@ -40,7 +40,7 @@ export const categoryAllList = createAsyncThunk(
 );
 
 export const categoryCreate = createAsyncThunk(
-  "category/create",
+  "create",
   async ({ name, sum, description }, { getState, rejectWithValue }) => {
     try {
       // get user data from store
@@ -72,7 +72,7 @@ export const categoryCreate = createAsyncThunk(
 );
 
 export const categoryUpdate = createAsyncThunk(
-  "category/update",
+  "update",
   async ({ id, name, sum, description }, { getState, rejectWithValue }) => {
     try {
       // get user data from store
@@ -104,7 +104,7 @@ export const categoryUpdate = createAsyncThunk(
 );
 
 export const categoryGet = createAsyncThunk(
-  "category/getone",
+  "getone",
   async ({ id }, { getState, rejectWithValue }) => {
     try {
       // get user data from store
@@ -135,7 +135,7 @@ export const categoryGet = createAsyncThunk(
 );
 
 export const categoryDelete = createAsyncThunk(
-  "category/delete",
+  "delete",
   async ({ id }, { getState, rejectWithValue }) => {
     try {
       // get user data from store

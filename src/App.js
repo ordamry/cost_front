@@ -31,9 +31,9 @@ function App() {
         <Route path="/login" element={<Login />} />
         <Route path="/register" element={<Register />} />
         <Route element={<ProtectedRoute />}>
-          <Route path="/addcost" element={<CostList />} />
+          <Route path="/costs" element={<CostList />} />
           <Route path="/new-cost" element={<AddCost />} />
-          <Route path="/addcost/:costId" element={<UpdateCost />} />
+          <Route path="/costs/:costId" element={<UpdateCost />} />
           <Route path="/profile" element={<Profile />} />
           {/* Category Part */}
           <Route path="/category" element={<Category />} />

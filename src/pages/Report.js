@@ -15,7 +15,7 @@ import Loader from "../components/Loading";
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 
-const backendApiURL = "http://13.53.201.157/api";
+const backendApiURL = "http://13.53.201.157/api/";
 
 export const Report = () => {
   const [picker, setPicker] = useState(new Date());

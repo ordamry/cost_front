@@ -6,10 +6,10 @@ Idit oksman - 207379769
 import { createAsyncThunk } from "@reduxjs/toolkit";
 import axios from "axios";
 
-const backendApiURL = "http://13.53.201.157/api";
+const backendApiURL = "http://13.53.201.157/api/";
 
 export const costAllList = createAsyncThunk(
-  "addcost/list",
+  "list",
   async ({ search }, { getState, rejectWithValue }) => {
     // get user data from store
     const { user } = getState();
@@ -21,7 +21,7 @@ export const costAllList = createAsyncThunk(
           Authorization: `Bearer ${user.userToken}`,
         },
       };
-      const { data } = await axios.get(`${backendApiURL}/addcost`, config);
+      const { data } = await axios.get(`${backendApiURL}/costs`, config);
 
       if (search !== "") {
         return data.filter((sub) => sub.category?.name.startsWith(search));
@@ -40,7 +40,7 @@ export const costAllList = createAsyncThunk(
 );
 
 export const costCreate = createAsyncThunk(
-  "addcost/create",
+  "addcost",
   async (
     { category, description, sum, date },
     { getState, rejectWithValue }
@@ -75,7 +75,7 @@ export const costCreate = createAsyncThunk(
 );
 
 export const costUpdate = createAsyncThunk(
-  "addcost/update",
+  "update",
   async (
     { id, category, description, sum, date },
     { getState, rejectWithValue }
@@ -92,7 +92,7 @@ export const costUpdate = createAsyncThunk(
       };
 
       const { data } = await axios.put(
-        `${backendApiURL}/addcost/${id}`,
+        `${backendApiURL}/costs/${id}`,
         { category, description, sum, date },
         config
       );
@@ -110,7 +110,7 @@ export const costUpdate = createAsyncThunk(
 );
 
 export const costDelete = createAsyncThunk(
-  "addcost/delete",
+  "delete",
   async ({ id }, { getState, rejectWithValue }) => {
     try {
       // get user data from store
@@ -124,7 +124,7 @@ export const costDelete = createAsyncThunk(
       };
 
       const { data } = await axios.delete(
-        `${backendApiURL}/addcost/${id}`,
+        `${backendApiURL}/costs/${id}`,
         config
       );
 
@@ -141,7 +141,7 @@ export const costDelete = createAsyncThunk(
 );
 
 export const costGet = createAsyncThunk(
-  "addcost/getone",
+  "getone",
   async ({ id }, { getState, rejectWithValue }) => {
     try {
       // get user data from store
@@ -154,10 +154,7 @@ export const costGet = createAsyncThunk(
         },
       };
 
-      const { data } = await axios.get(
-        `${backendApiURL}/addcost/${id}`,
-        config
-      );
+      const { data } = await axios.get(`${backendApiURL}/costs/${id}`, config);
 
       return data;
     } catch (error) {

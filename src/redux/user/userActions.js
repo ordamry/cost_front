@@ -6,10 +6,10 @@ Idit oksman - 207379769
 import axios from "axios";
 import { createAsyncThunk } from "@reduxjs/toolkit";
 
-const backendApiURL = "http://13.53.201.157/api";
+const backendApiURL = "http://13.53.201.157/api/";
 
 export const userLogin = createAsyncThunk(
-  "users/login",
+  "/login",
   async ({ email, password }, { rejectWithValue }) => {
     try {
       // configure header's Content-Type as JSON
@@ -20,7 +20,7 @@ export const userLogin = createAsyncThunk(
       };
 
       const { data } = await axios.post(
-        `${backendApiURL}/users/login`,
+        `${backendApiURL}/login`,
         { email, password },
         config
       );
@@ -41,7 +41,7 @@ export const userLogin = createAsyncThunk(
 );
 
 export const registerUser = createAsyncThunk(
-  "users/register",
+  "/register",
   async (
     { first_name, last_name, birthday, email, password },
     { rejectWithValue }
@@ -54,7 +54,7 @@ export const registerUser = createAsyncThunk(
       };
 
       await axios.post(
-        `${backendApiURL}/users/register`,
+        `${backendApiURL}/register`,
         { first_name, last_name, birthday, email, password },
         config
       );

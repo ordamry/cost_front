@@ -21,8 +21,6 @@ const Register = () => {
     (state) => state.user
   );
 
-  console.log(loading)
-
   const dispatch = useDispatch();
 
   const {
